@@ -1,0 +1,4 @@
+com/lauriano/dogadopt/data/contentitem/dog/DogContentItem.class
+com/lauriano/dogadopt/data/repository/dog/DogRepository.class
+com/lauriano/dogadopt/data/contentitem/dog/DogFormContentItem.class
+com/lauriano/dogadopt/data/entity/dog/Dog.class
