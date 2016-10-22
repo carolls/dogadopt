@@ -1,1 +1,4 @@
-# dogadopt
+# dogadop
+
+A dog recommendation for adoptation.
+
