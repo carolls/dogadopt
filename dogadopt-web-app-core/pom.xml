@@ -19,6 +19,18 @@
   			<artifactId>dogadopt-web-app-data</artifactId>
   			<version>${project.version}</version>
   		</dependency>
+  		<!-- Apache Mahout dependencies -->
+	  	<dependency>
+		    <groupId>org.apache.mahout</groupId>
+		    <artifactId>mahout-mr</artifactId>
+		    <version>${mahout.version}</version>
+		    <exclusions>
+				<exclusion>
+					<groupId>org.apache.hadoop</groupId>
+					<artifactId>hadoop-client</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
   		<!-- Spring dependencies --> 
   		<dependency>
 			<groupId>org.springframework.boot</groupId>
