@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.google.common.collect.Lists;
 import com.lauriano.dogadopt.core.service.dog.DogSearchService;
 import com.lauriano.dogadopt.core.service.dog.DogRecommenderService;
 import com.lauriano.dogadopt.data.contentitem.dog.DogFormContentItem;
@@ -36,7 +35,12 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 	@Override
 	public List<DogContentItem> generateRecomendation(DogFormContentItem dogForm) {
 		//  A partir del custionario, obtener un listado de perros recomndados
-		final List<DogContentItem> result = dogSearchService.getAll();
+		//  Filtrar por valores discriminatorios
+		final Boolean childrens = dogForm.isChildrens();
+		final Boolean otherDogs = dogForm.isOtherDogs();
+		final Boolean anyCats = dogForm.isAnyCats();
+		final Boolean alergies = dogForm.isAlergies();
+		final List<DogContentItem> result = dogSearchService.getAllByBooleanFilters(childrens, otherDogs, anyCats, alergies);
 	//	log.info(beantoString(dogForm));
 		DogContentItem user = transformFormInDog(dogForm);
 	//	log.info(beantoString(user));
@@ -51,11 +55,7 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 			//log.info("---------neighborhood-------------");
 			//log.info(beantoString(vecinos));
 			if (vecinos.length>0){
-				List<DogContentItem> resultFiltered = Lists.newArrayList();
-				for (int i=0;i<vecinos.length;i++){
-					resultFiltered.add(dogSearchService.getById(vecinos[i]));
-					
-				}
+				final List<DogContentItem> resultFiltered = dogSearchService.getByIds(vecinos);
 				return resultFiltered;
 			}
 			//log.info("---------finish-------------");
