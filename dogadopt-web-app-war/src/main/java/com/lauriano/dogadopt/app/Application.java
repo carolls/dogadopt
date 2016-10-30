@@ -69,13 +69,13 @@ public class Application extends SpringBootServletInitializer {
             		4,4,3,4,1,4,Ctes.CARACTER.MEDIUM,true,true,true,false));
             
             
-            generateDogsAleatory(400,dogRepository);
+            generateDogsAleatory(300,dogRepository);
 			// fetch all dogs
-			log.info("Dogs found with findAll():");
-			log.info("-------------------------------");
-			for (Dog dog : dogRepository.findAll()) {
+			//log.info("Dogs found with findAll():");
+			//log.info("-------------------------------");
+			//for (Dog dog : dogRepository.findAll()) {
 				//log.info(dog.toString());
-			}
+			//}
             log.info("");
 		};
 	}

@@ -7,14 +7,11 @@ import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.common.FastByIDMap;
 import org.apache.mahout.cf.taste.impl.model.GenericDataModel;
 import org.apache.mahout.cf.taste.impl.model.GenericUserPreferenceArray;
-import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
-import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
+import org.apache.mahout.cf.taste.impl.neighborhood.NearestNUserNeighborhood;
 import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
 import org.apache.mahout.cf.taste.model.DataModel;
 import org.apache.mahout.cf.taste.model.PreferenceArray;
 import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
-import org.apache.mahout.cf.taste.recommender.RecommendedItem;
-import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
 import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.google.common.collect.Lists;
 import com.lauriano.dogadopt.core.service.dog.DogSearchService;
 import com.lauriano.dogadopt.core.service.dog.DogRecommenderService;
 import com.lauriano.dogadopt.data.contentitem.dog.DogFormContentItem;
@@ -39,43 +37,51 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 	public List<DogContentItem> generateRecomendation(DogFormContentItem dogForm) {
 		//  A partir del custionario, obtener un listado de perros recomndados
 		final List<DogContentItem> result = dogSearchService.getAll();
-		log.info(beantoString(dogForm));
+	//	log.info(beantoString(dogForm));
 		DogContentItem user = transformFormInDog(dogForm);
+	//	log.info(beantoString(user));
 		try {
 			DataModel model = transformDogsInAModel(user,result);
+		//	log.info(beantoString(model));
 			//DataModel model = new FileDataModel(new File("data.txt"));
-			UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
-			UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
-			UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
-			List<RecommendedItem> recommendations = recommender.recommend(0L, 3);
-			for (RecommendedItem recommendation : recommendations) {
-				//recupera Dogs con los IDs 
-				log.info(recommendation.toString());
+			UserSimilarity userSimilarity = new PearsonCorrelationSimilarity(model);
+			UserNeighborhood neighborhood =
+				      new NearestNUserNeighborhood(10, userSimilarity, model);
+			long[] vecinos=neighborhood.getUserNeighborhood(0L);
+			//log.info("---------neighborhood-------------");
+			//log.info(beantoString(vecinos));
+			if (vecinos.length>0){
+				List<DogContentItem> resultFiltered = Lists.newArrayList();
+				for (int i=0;i<vecinos.length;i++){
+					resultFiltered.add(dogSearchService.getById(vecinos[i]));
+					
+				}
+				return resultFiltered;
 			}
+			//log.info("---------finish-------------");
 		} catch (TasteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.info(e.toString());
 		}
 		return result;
 	}
 	public static DogContentItem transformFormInDog(DogFormContentItem dogForm){
-		DogContentItem dog = new DogContentItem();
+		DogContentItem user = new DogContentItem();
 		
-		BeanUtils.copyProperties(dog, dogForm);
-		dog.setId(0L);
+		BeanUtils.copyProperties(dogForm, user);
+		user.setId(0L);
 		if (dogForm.isIndependent2()){
-			dog.setIndependent(1);
+			user.setIndependent(1);
 		}
-		dog.setSpecialNeeds((dogForm.getSpecialNeeds()+dogForm.getSpecialNeeds2())%4);
-		dog.setSociable((dogForm.getSociable()+dogForm.getSociable2())%4);
-		return dog;
+		user.setSpecialNeeds((dogForm.getSpecialNeeds()+dogForm.getSpecialNeeds2())/2);
+		user.setSociable((dogForm.getSociable()+dogForm.getSociable2())/2);
+		return user;
 	}
 	public static GenericDataModel transformDogsInAModel(DogContentItem user,List<DogContentItem> list){
 		FastByIDMap<PreferenceArray> preferences =
 				 new FastByIDMap<PreferenceArray>();
 		//add usuario
-		PreferenceArray prefsForUser = new GenericUserPreferenceArray(15);
-		prefsForUser.setUserID(0, user.getId());
+		PreferenceArray prefsForUser = new GenericUserPreferenceArray(11);
+		prefsForUser.setUserID(0, 0L);
 		prefsForUser.setItemID(0, 101L);
 		prefsForUser.setValue(0, user.getHair());
 		prefsForUser.setItemID(1, 102L);
@@ -98,13 +104,13 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 		prefsForUser.setValue(9, user.getNoiseTolerance());
 		prefsForUser.setItemID(10, 111L);
 		prefsForUser.setValue(10, user.getExpensive());
-		prefsForUser.setItemID(10, 111L);
-		preferences.put(0L, prefsForUser);
+		preferences.put(0, prefsForUser);
 		//add all dogs
-		for (int i=0;i<list.size();i++) {
-			PreferenceArray prefsForUser1 = new GenericUserPreferenceArray(15);
-			DogContentItem dog= list.get(i);
-			prefsForUser1.setUserID(i+1, dog.getId());
+		for (int j=0;j<list.size();j++) {
+			PreferenceArray prefsForUser1 = new GenericUserPreferenceArray(11);
+			DogContentItem dog= list.get(j);
+			int i = j+1;
+			prefsForUser1.setUserID(i, dog.getId());
 			prefsForUser1.setItemID(0, 101L);
 			prefsForUser1.setValue(0, dog.getHair());
 			prefsForUser1.setItemID(1, 102L);
@@ -127,8 +133,7 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 			prefsForUser1.setValue(9, dog.getNoiseTolerance());
 			prefsForUser1.setItemID(10, 111L);
 			prefsForUser1.setValue(10, dog.getExpensive());
-			prefsForUser1.setItemID(10, 111L);
-			preferences.put(i+1, prefsForUser1);
+			preferences.put(i, prefsForUser1);
 		}
 		return  new GenericDataModel(preferences);
 	}
