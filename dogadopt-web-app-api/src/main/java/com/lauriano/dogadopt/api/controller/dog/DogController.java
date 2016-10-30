@@ -26,6 +26,9 @@ public class DogController {
 	private static final String RECOMMENDATION_MENU_VALUE = "1";
 	private static final String DOGS_MENU_VALUE = "2";
 	
+	private static final String LIST_PAGE_HEADER = "Dogs in adoption";
+	private static final String RECOMENDATION_PAGE_HEADER = "Recommendations";
+	
 	// Used to display the correct menu navigation for multiple uses templates (getOne() template)
 	protected String lastMenuValue = RECOMMENDATION_MENU_VALUE;
 	
@@ -49,6 +52,7 @@ public class DogController {
         final List<DogContentItem> items = dogSearchService.getAll();
         lastMenuValue = DOGS_MENU_VALUE;
         model.addAttribute("menuOption", lastMenuValue);
+        model.addAttribute("pageHeader", LIST_PAGE_HEADER);
         model.addAttribute("items", items);
         return LIST_TEMPLEATE;
     }
@@ -93,6 +97,7 @@ public class DogController {
     	final List<DogContentItem> result = recommenderService.generateRecomendation(dogForm);
     	lastMenuValue = RECOMMENDATION_MENU_VALUE;
     	model.addAttribute("menuOption", lastMenuValue);
+    	model.addAttribute("pageHeader", RECOMENDATION_PAGE_HEADER);
     	model.addAttribute("items", result);
         return LIST_TEMPLEATE;
     }
