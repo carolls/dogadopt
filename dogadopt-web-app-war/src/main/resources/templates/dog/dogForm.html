@@ -1,5 +1,38 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
+<style type="text/css">
+    .form-label-left{
+        width:300px !important;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:300px !important;
+    }
+    body, html{
+        margin:0;
+        padding:0;
+        background:false;
+    }
+
+    .form-all{
+        margin:0px auto;
+        padding-top:0px;
+        width:690px;
+        color:#555 !important;
+        font-family:'Lucida Grande','Lucida Sans Unicode','Lucida Sans','Verdana','Tahoma','sans-serif';
+        font-size:14px;
+    }
+    .form-radio-item label, .form-checkbox-item label, .form-grading-label, .form-header{
+        color: #555;
+    }
+
+</style>
+
+
 <head>
     <thymeleaf th:replace="fragments/head :: head" />
 </head>
@@ -15,11 +48,314 @@
                         
                         
 						<!--  CONTENT -->
-                       	<h1 class="page-header">Dog recommendation form</h1>
+                       	  <h1 id="header_1" class="form-header">
+              DOG ADOPT
+            </h1>
+            <div id="subHeader_1" class="form-subHeader">
+              Te ayudamos a encontrar tu perro ideal!
+            </div>
 						<form action="#" th:action="@{/dog/recomendation}" th:object="${dogForm}" method="post">
-			    			<p>Id: <input type="text" th:field="*{id}" /></p>
-			     		   <p>Message: <input type="text" th:field="*{content}" /></p>
-			   		     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        <div class="form-header-group">
+          <div class="header-text">
+            <h2 id="header_12" class="form-header">
+              Características físicas
+            </h2>
+          </div>
+        </div>
+        <!-- SIZE -->
+			    	
+			    	
+			    	      
+           <label class="form-label form-label-top form-label-auto" >
+     1 de 13)  Me gusta los perros de tamaño
+          <span class="form-required">
+            *
+          </span>
+        </label>
+           <p> 
+           	  <label >Mini</label>
+              <input type="radio" th:field="*{size}"  th:value="1" />
+              <input type="radio" th:field="*{size}" th:value="2" />
+              <input type="radio" th:field="*{size}" th:value="3" />
+              <input type="radio" th:field="*{size}" th:value="4" />
+              <input type="radio" th:field="*{size}" th:value="5" />
+              <label >Maxi</label>
+            </p>
+                
+                
+			    	
+         <!-- END SIZE -->
+            <!-- HAIR -->
+             <label class="form-label form-label-top form-label-auto" >
+ 2 de 13) Me gusta perros con pelo
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <p> <input type="radio" th:field="*{hair}"  th:value="1" /><label >Corto</label></p>
+          <p><input type="radio" th:field="*{hair}"  th:value="3" /><label> Largo  </label></p>
+          <p><input type="radio" th:field="*{hair}"  th:value="2" /><label > Indiferente </label></p>
+            
+         
+      <!--END HAIR -->
+       <!--COLOR -->
+             <label class="form-label form-label-top form-label-auto" >
+  3 de 13) Me gusta perros con color
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <p> <input type="radio" th:field="*{color}"  th:value="1" /><label >Claro</label></p>
+          <p><input type="radio" th:field="*{color}"  th:value="3" /><label> Oscuro  </label></p>
+          <p><input type="radio" th:field="*{color}"  th:value="2" /><label > Indiferente </label></p>
+             <!--END COLOR -->
+                 
+        <div class="form-header-group">
+          <div class="header-text">
+            <h2 id="header_66" class="form-header">
+              Características de carácter
+            </h2>
+          </div>
+        </div>
+                    <!--ACTIVE-->
+                           <label class="form-label form-label-top form-label-auto" >
+  4 de 13) En los fines de semana, me gusta:
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <p> <input type="radio" th:field="*{active}"  th:value="1" /><label >Mirar la tele y estar en casa</label></p>
+          <p><input type="radio" th:field="*{active}"  th:value="4" /><label >Estar en la naturaleza  </label></p>
+          <p><input type="radio" th:field="*{active}"  th:value="3" /><label >  Pasear por la ciudad</label></p>
+           <p>   <input type="radio" th:field="*{active}"  th:value="2" /><label > Salir de fiesta</label> </p>
+           
+                    
+       <!--END ACTIVE-->
+       <!--INDEPENDENT-->
+           
+      
+      
+       <label class="form-label form-label-top form-label-auto" >
+5 de 13) Durante los dias laborales, estoy fuera de casa:
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <p> <input type="radio" th:field="*{independent}"  th:value="1" /><label >Trabajo en casa </label></p>
+          <p><input type="radio" th:field="*{independent}"  th:value="2" /><label >Hasta 6 horas  </label></p>
+          <p><input type="radio" th:field="*{independent}"  th:value="3" /><label > Hasta 8 horas</label></p>
+           <p>   <input type="radio" th:field="*{independent}"  th:value="4" /><label > Hasta 12 horas</label> </p>
+           
+            <label class="form-label form-label-top form-label-auto" id="label_52" for="independent2" >
+       Tengo otros familiares que estarán en casa mientras estoy trabajando?
+          <span class="form-required">
+            *
+          </span>
+        </label>  
+<select id="independent2" class="form-control" th:field="*{independent2}">
+	<option th:value="true" >Si</option>
+	<option th:value="false">No</option>
+</select>
+      
+       <!--END DEPENDENT-->
+       <!--ACTIVE2 AND SOCIABLE-->
+          
+      
+       <label class="form-label form-label-top form-label-auto" >
+6 de 13) Tenia pensado en ir al parque de perros
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <p> <input type="radio" th:field="*{sociable}"  th:value="1" /><label >Hasta 3 horas aproximadamente por semana </label></p>
+          <p><input type="radio" th:field="*{sociable}"  th:value="2" /><label >Hasta 5 horas aproximadamente por semana </label></p>
+          <p><input type="radio" th:field="*{sociable}"  th:value="3" /><label >Hasta 7 horas aproximadamente por semana</label></p>
+           <p>   <input type="radio" th:field="*{sociable}"  th:value="4" /><label >Mas de 7 horas por semana si fuera necesario</label> </p>
+       <!--END SOCIABLE-->
+       <!--EXPENSIVE-->
+       
+        <label class="form-label form-label-top form-label-auto" >
+7 de 13) Tengo pensado en gastar (en comida, peluqueria y veterinarios):
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <p> <input type="radio" th:field="*{expensive}"  th:value="1" /><label >Hasta 20€ por mes aproximadamente </label></p>
+          <p><input type="radio" th:field="*{expensive}"  th:value="2" /><label >Hasta 60€ por mes </label></p>
+          <p><input type="radio" th:field="*{expensive}"  th:value="3" /><label >Hasta 100€ por mes</label></p>
+           <p>   <input type="radio" th:field="*{expensive}"  th:value="4" /><label > No me preocupa los temas financeros</label> </p>
+       <!--END EXPENSIVE-->
+       <!--NOISE-->
+      
+           <label class="form-label form-label-top form-label-auto" >
+8 de 13) Vivo en un piso/casa donde se podria haber
+          <span class="form-required">
+            *
+          </span>
+        </label>
+           <p> <label >Ningun ruido</label>
+              <input type="radio" th:field="*{noiseTolerance}"  th:value="1" />
+              <input type="radio" th:field="*{noiseTolerance}" th:value="2" />
+              <input type="radio" th:field="*{noiseTolerance}" th:value="3" />
+              <input type="radio" th:field="*{noiseTolerance}" th:value="4" />
+                <label >Mucho ruido</label></p>
+       <!--END NOISE-->
+       <!--SPECIAL NEEDS1-->
+           
+            
+      
+       <label class="form-label form-label-top form-label-auto" >
+9 de 13) Tengo tolerancia con que mi perro me rompa algo de la casa
+          <span class="form-required">
+            *
+          </span>
+        </label>
+           <p> <label >Ninguna</label>
+              <input type="radio" th:field="*{specialNeeds}"  th:value="1" />
+              <input type="radio" th:field="*{specialNeeds}" th:value="2" />
+              <input type="radio" th:field="*{specialNeeds}" th:value="3" />
+              <input type="radio" th:field="*{specialNeeds}" th:value="4" />
+                <label >Mucha</label></p>
+       <!--END SPECIAL NEEDS1-->
+       <!--PLAYFUL-->
+            
+       <label class="form-label form-label-top form-label-auto" >
+10 de 13) Me gusta jugar con perros
+          <span class="form-required">
+            *
+          </span>
+        </label>
+           <p> <label >Nada</label>
+              <input type="radio" th:field="*{playful}"  th:value="1" />
+              <input type="radio" th:field="*{playful}" th:value="2" />
+              <input type="radio" th:field="*{playful}" th:value="3" />
+              <input type="radio" th:field="*{playful}" th:value="4" />
+                <label >Mucho</label></p>
+                
+       <!--END PLAYFUL-->
+       <!--SPECIAL NEEDS2-->
+           
+      
+       <label class="form-label form-label-top form-label-auto" >
+11 de 13) Tengo mucha paciencia y tiempo para educar y cuidar de las necesidades especiales de mi perro
+          <span class="form-required">
+            *
+          </span>
+        </label>
+           <p> <label >Nada</label>
+              <input type="radio" th:field="*{specialNeeds2}"  th:value="1" />
+              <input type="radio" th:field="*{specialNeeds2}" th:value="2" />
+              <input type="radio" th:field="*{specialNeeds2}" th:value="3" />
+              <input type="radio" th:field="*{specialNeeds2}" th:value="4" />
+                <label >Mucho</label></p>
+       <!--END SPECIAL NEEDS2-->
+       <!--AFFECTIONATE-->
+       
+              <label class="form-label form-label-top form-label-auto" >
+12 de 13) Normalmente soy muy afectuoso con perros
+          <span class="form-required">
+            *
+          </span>
+        </label>
+           <p> <label >Nada</label>
+              <input type="radio" th:field="*{affectionate}"  th:value="1" />
+              <input type="radio" th:field="*{affectionate}" th:value="2" />
+              <input type="radio" th:field="*{affectionate}" th:value="3" />
+              <input type="radio" th:field="*{affectionate}" th:value="4" />
+                <label >Mucho</label></p>
+       <!--END AFFECTIONATE-->
+       <!--SOCIABLE2-->
+        <label class="form-label form-label-top form-label-auto" id="label_24" for="input_24">
+13 de 13) Diariamente , estariamos en contacto con
+          <span class="form-required">
+            *
+          </span>
+        </label>
+           <p> <label >Ningun perro</label>
+              <input type="radio" th:field="*{sociable2}"  th:value="1" />
+              <input type="radio" th:field="*{sociable2}" th:value="2" />
+              <input type="radio" th:field="*{sociable2}" th:value="3" />
+              <input type="radio" th:field="*{sociable2}" th:value="4" />
+                <label >Muchos perros</label></p>
+             
+       <!--END SOCIABLE2-->
+        <div class="form-header-group">
+          <div class="header-text">
+            <h2 id="header_61" class="form-header">
+              Solo mas unas dudas mas
+            </h2>
+          </div>
+        </div>
+       <!--CHILDRENS-->
+
+      
+       <label class="form-label form-label-top form-label-auto" id="label_52" for="childrens" >
+        Tengo niños(as)?
+          <span class="form-required">
+            *
+          </span>
+        </label>  
+<select id="childrens" class="form-control" th:field="*{childrens}">
+	<option th:value="true" >Si</option>
+	<option th:value="false">No</option>
+</select>
+       <!--END CHILDRENS-->
+       <!--OTHER DOGS-->
+
+      
+           <label class="form-label form-label-top form-label-auto" id="label_52" for="otherDogs" >
+           Tengo otros perros?
+          <span class="form-required">
+            *
+          </span>
+        </label>  
+<select id="otherDogs" class="form-control" th:field="*{otherDogs}">
+	<option th:value="true" >Si</option>
+	<option th:value="false">No</option>
+</select>
+       <!--END OTHER DOGS-->
+
+       <!--ANY CATS-->
+
+           <label class="form-label form-label-top form-label-auto" id="label_53" for="anyCats" >
+           Tengo gatos?
+          <span class="form-required">
+            *
+          </span>
+        </label>  
+<select id="anyCats" class="form-control" th:field="*{anyCats}">
+	<option th:value="true" >Si</option>
+	<option th:value="false">No</option>
+</select>
+       <!--END ANYCATS-->
+       <!--ALERGIES-->
+       
+      
+     <label class="form-label form-label-top form-label-auto" id="label_54" for="alergies" >
+          Tengo personas alergicas en la familia?
+          <span class="form-required">
+            *
+          </span>
+        </label>  
+<select id="alergies" class="form-control" th:field="*{alergies}">
+	<option th:value="true" >Si</option>
+	<option th:value="false">No</option>
+</select>
+       <!--END ALERGIES-->
+       
+       <!--CONTACTO-->
+        <div class="form-header-group">
+          <div class="header-text">
+            <h2 id="header_3" class="form-header">
+              Contacto
+            </h2>
+          </div>
+        </div>
+
+          <p>Nombre y Apellidos: <input type="text" th:field="*{nombre}"   /></p>
+     <p>Email: <input type="text" th:field="*{email}"   /></p>
+        <!--END CONTACTO-->
+			   		     <p><input type="submit" value="Aceptar" /> <input type="reset" value="Limpiar" /></p>
 			 		   </form>
                         <!-- END CONTENT -->
                         

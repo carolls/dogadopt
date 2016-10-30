@@ -56,6 +56,7 @@ public class Dog implements Serializable {
 	protected int affectionate;
 	protected int specialNeeds;
 	protected int noiseTolerance; //bajo si ladra mucho - alto si no ladra
+	protected int expensive;
 	
 	//
 	//OTROS FACTORES 
@@ -72,7 +73,7 @@ public class Dog implements Serializable {
 
 	public Dog(Long id, String name, int age, String breed, int hair,
 			int color, int size, int playful, int sociable, int independent,
-			int active, int affectionate, int specialNeeds, int noiseTolerance,
+			int active, int affectionate, int specialNeeds, int noiseTolerance,int expensive,
 			boolean childrens, boolean otherDogs, boolean anyCats,
 			boolean alergies) {
 		super();
@@ -90,6 +91,7 @@ public class Dog implements Serializable {
 		this.affectionate = affectionate;
 		this.specialNeeds = specialNeeds;
 		this.noiseTolerance = noiseTolerance;
+		this.expensive=expensive;
 		this.childrens = childrens;
 		this.otherDogs = otherDogs;
 		this.anyCats = anyCats;
@@ -224,6 +226,14 @@ public class Dog implements Serializable {
 	}
 	
 	
+	public int getExpensive() {
+		return expensive;
+	}
+
+	public void setExpensive(int expensive) {
+		this.expensive = expensive;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
