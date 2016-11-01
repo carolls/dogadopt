@@ -15,26 +15,41 @@
                         
                         
 						<!--  CONTENT -->
-                       	<h1 class="page-header">Dog detail view</h1>
-						<table class="table table-striped">
-						  <thead>
-						    <tr>
-						      <th>Id</th>
-						      <th>Name</th>
-						      <th>Age</th>
-						      <th>Breed</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						    <tr>
-						      <td th:text="${item.id}"/>
-						      <td th:text="${item.name}"/>
-						      <td th:text="${item.age}"/>
-						      <td th:text="${item.breed}"/>
-						    </tr>
-						  </tbody>
-						</table>
-						<a href="" onclick="goBack()">return to dogs list</a>
+                       	<h1 class="page-header" th:text="${item.name}">Dog name</h1>
+                       	
+                       	<div class="panel panel-default">
+                       		<div class="panel-body">
+                       			
+                       			<!-- Dog details -->
+                       			<div class="row show-grid">
+	                       			<!--  Image -->
+	                       			<div class="col-md-4">
+	                       				<img style="width: 100%;" th:src="@{/images/na.gif}" />
+									</div>
+	                       			
+	                       			<div class="col-md-8" style="background-color:#fff !important; border: none;">
+		                       			<div class="row show-grid">
+	                                      	<!--  Id -->
+	                                      	<div class="col-md-4 text-muted">Id:</div>
+	                                      	<div class="col-md-8" th:text="${item.id}">item.id</div>
+	                                      	<!--  Name -->
+	                                      	<div class="col-md-4 text-muted">Name:</div>
+	                                      	<div class="col-md-8" th:text="${item.name}">item.name</div>
+	                                      	<!--  Age -->
+	                                      	<div class="col-md-4 text-muted">Age:</div>
+	                                      	<div class="col-md-8" th:text="${item.age}">item.age</div>
+	                                      	<!--  Breed -->
+	                                      	<div class="col-md-4 text-muted">Breed:</div>
+	                                      	<div class="col-md-8" th:text="${item.breed}">item.breed</div>
+	                                    </div>
+	                       			</div>
+                       			</div>
+                       			
+                       		</div>
+                       	
+                       	</div>
+                       	
+						<button class="btn btn-primary" onclick="goBack()">Back</button>
                         <!-- END CONTENT -->
                         
                         

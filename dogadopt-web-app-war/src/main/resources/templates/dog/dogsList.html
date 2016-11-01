@@ -17,28 +17,35 @@
                         <!--  CONTENT -->
                        	<h1 class="page-header" th:text="${pageHeader}">Dogs list</h1>
                        	
-                       	<div class="panel-body">
-	                       	<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-							  <thead>
-							    <tr>
-							      <th>Id</th>
-							      <th>Name</th>
-							    </tr>
-							  </thead>
-							  <tbody>
-							    <tr th:each="dog : ${items}">
-							      <td th:text="${dog.id}"/>
-							      <td>
-								      <a href="dogDetails.html"
-							          th:href="@{|/dog/${dog.id}|}"
-							          th:text="|${dog.name}|">View</a>
-						          </td>
-							    </tr>
-							  </tbody>
-							</table>
+                       	<div class="panel panel-default">
+	                        <div class="panel-heading">
+	                            Result dogs
+	                        </div>
+	                        <!-- /.panel-heading -->  
+	                                             	
+	                       	<div class="panel-body">
+		                       	<table width="100%" class="table table-striped table-bordered table-hover" id="dataTable">
+								  <thead>
+								    <tr>
+								      <th>Id</th>
+								      <th>Name</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr th:each="dog : ${items}">
+								      <td th:text="${dog.id}"/>
+								      <td>
+									      <a href="dogDetails.html"
+								          th:href="@{|/dog/${dog.id}|}"
+								          th:text="|${dog.name}|">View</a>
+							          </td>
+								    </tr>
+								  </tbody>
+								</table>
+							</div>
 						</div>
                         <!-- END CONTENT -->
-                        
+
                         
                     </div>
                     <!-- /.col-lg-12 -->
