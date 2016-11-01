@@ -28,7 +28,7 @@ public class Dog implements Serializable {
 	//CARACTERISTICAS FISICAS
 	//tipo de pelo
 	//1)corto
-	//2)largo
+	//3)largo
 	protected int hair;
 	
 	//color

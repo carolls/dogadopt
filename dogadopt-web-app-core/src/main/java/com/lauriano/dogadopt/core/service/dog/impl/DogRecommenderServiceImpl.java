@@ -133,7 +133,7 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 			prefsForUser1.setValue(9, dog.getNoiseTolerance());
 			prefsForUser1.setItemID(10, 111L);
 			prefsForUser1.setValue(10, dog.getExpensive());
-			preferences.put(i, prefsForUser1);
+			preferences.put(dog.getId(), prefsForUser1);
 		}
 		return  new GenericDataModel(preferences);
 	}

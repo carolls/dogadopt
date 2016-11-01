@@ -67,6 +67,12 @@ public class Application extends SpringBootServletInitializer {
             		4,2,4,3,2,2,Ctes.CARACTER.ALOT,false,true,false,false));
             dogRepository.save(new Dog(5L,"Duna", 7, "golden",Ctes.HAIR.LONG,Ctes.COLOR.LIGHT,Ctes.SIZE.BIG,Ctes.CARACTER.ALOT,
             		4,4,3,4,1,4,Ctes.CARACTER.MEDIUM,true,true,true,false));
+            dogRepository.save(new Dog(6L,"Nami", 4, "jack russel",Ctes.HAIR.SHORT,Ctes.COLOR.LIGHT, Ctes.SIZE.SMALL,Ctes.CARACTER.ALOT,
+            		Ctes.CARACTER.ALOT,Ctes.CARACTER.LITTLE,Ctes.CARACTER.ALOT,Ctes.CARACTER.ALOT,Ctes.CARACTER.NOTATALL,Ctes.CARACTER.LITTLE,Ctes.CARACTER.NOTATALL
+            		,Ctes.OTHER.HATE_CHILDREN,Ctes.OTHER.LOVE_DOGS,Ctes.OTHER.LOVE_CATS,Ctes.OTHER.ALLERGIC));
+            dogRepository.save(new Dog(7L,"Jacob", 0, "pastor belga mix",Ctes.HAIR.SHORT,Ctes.COLOR.LIGHT, Ctes.SIZE.MEDIUM,Ctes.CARACTER.ALOT,
+            		Ctes.CARACTER.ALOT,Ctes.CARACTER.LITTLE,Ctes.CARACTER.ALOT,Ctes.CARACTER.MEDIUM,Ctes.CARACTER.NOTATALL,Ctes.CARACTER.LITTLE,Ctes.CARACTER.LITTLE
+            		,Ctes.OTHER.LOVE_CHILDREN,Ctes.OTHER.LOVE_DOGS,Ctes.OTHER.LOVE_CATS,Ctes.OTHER.ALLERGIC));
             
             
             generateDogsAleatory(300,dogRepository);
