@@ -41,19 +41,19 @@
 	                                       <div class="radio" >
 		                                       <label class="radio-inline">Mini</label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{size}" th:value="1" />
+		                                           <input type="radio" th:field="*{size}" th:value="1" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{size}" th:value="2" />
+		                                           <input type="radio" th:field="*{size}" th:value="2" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{size}" th:value="3" />
+		                                           <input type="radio" th:field="*{size}" th:value="3" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{size}" th:value="4" />
+		                                           <input type="radio" th:field="*{size}" th:value="4" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{size}" th:value="5" />
+		                                           <input type="radio" th:field="*{size}" th:value="5" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">Maxi</label>
 	                                       </div>
@@ -67,17 +67,17 @@
 				            		   <div class="form-group panel-body">
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{hair}" th:value="1" />Corto
+	                                               <input type="radio" th:field="*{hair}" th:value="1" th:required="required"/>Corto
 	                                           </label>
 	                                       </div>
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{hair}" th:value="3" />Largo
+	                                               <input type="radio" th:field="*{hair}" th:value="3" th:required="required"/>Largo
 	                                           </label>
 	                                       </div>
 	                                       <div class="radio">  
 	                                           <label>
-	                                               <input type="radio" th:field="*{hair}" th:value="2" />Indiferente
+	                                               <input type="radio" th:field="*{hair}" th:value="2" th:required="required"/>Indiferente
 	                                           </label>                                             
 	                                       </div>
 	                                   </div>
@@ -90,17 +90,17 @@
 						       		   <div class="form-group panel-body">
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{color}" th:value="1" />Claro
+	                                               <input type="radio" th:field="*{color}" th:value="1" th:required="required"/>Claro
 	                                           </label>
 	                                       </div>
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{color}" th:value="3" />Oscuro
+	                                               <input type="radio" th:field="*{color}" th:value="3" th:required="required"/>Oscuro
 	                                           </label> 
 	                                       </div>
 	                                       <div class="radio"> 
 	                                           <label>
-	                                               <input type="radio" th:field="*{color}" th:value="2" />Indiferente
+	                                               <input type="radio" th:field="*{color}" th:value="2" th:required="required"/>Indiferente
 	                                           </label>                                             
 	                                       </div>
 	                                   </div>
@@ -125,22 +125,22 @@
 						       		   <div class="form-group panel-body">
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{active}" th:value="1" />Mirar la tele y estar en casa
+	                                               <input type="radio" th:field="*{active}" th:value="1" th:required="required" />Mirar la tele y estar en casa
 	                                           </label>
 	                                       </div>
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{active}" th:value="4" />Estar en la naturaleza
+	                                               <input type="radio" th:field="*{active}" th:value="4" th:required="required"/>Estar en la naturaleza
 	                                           </label> 
 	                                       </div>
 	                                       <div class="radio"> 
 	                                           <label>
-	                                               <input type="radio" th:field="*{active}" th:value="3" />Pasear por la ciudad
+	                                               <input type="radio" th:field="*{active}" th:value="3" th:required="required"/>Pasear por la ciudad
 	                                           </label>                                             
 	                                       </div>
 	                                       <div class="radio"> 
 	                                           <label>
-	                                               <input type="radio" th:field="*{active}" th:value="2" />Salir de fiesta
+	                                               <input type="radio" th:field="*{active}" th:value="2" th:required="required"/>Salir de fiesta
 	                                           </label>                                             
 	                                       </div>
 	                                   </div>
@@ -153,22 +153,22 @@
 						       		   <div class="form-group panel-body">
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{independent}" th:value="1" />Trabajo en casa
+	                                               <input type="radio" th:field="*{independent}" th:value="1" th:required="required"/>Trabajo en casa
 	                                           </label>
 	                                       </div>
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{independent}" th:value="2" />Hasta 6 horas
+	                                               <input type="radio" th:field="*{independent}" th:value="2" th:required="required"/>Hasta 6 horas
 	                                           </label> 
 	                                       </div>
 	                                       <div class="radio"> 
 	                                           <label>
-	                                               <input type="radio" th:field="*{independent}" th:value="3" />Hasta 8 horas
+	                                               <input type="radio" th:field="*{independent}" th:value="3" th:required="required"/>Hasta 8 horas
 	                                           </label>                                             
 	                                       </div>
 	                                       <div class="radio"> 
 	                                           <label>
-	                                               <input type="radio" th:field="*{independent}" th:value="4" />Hasta 12 horas
+	                                               <input type="radio" th:field="*{independent}" th:value="4" th:required="required"/>Hasta 12 horas
 	                                           </label>                                             
 	                                       </div>
 	                                       <div class="panel">
@@ -188,22 +188,22 @@
 						       		   <div class="form-group panel-body">
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{sociable}" th:value="1" />Hasta 3 horas aproximadamente por semana
+	                                               <input type="radio" th:field="*{sociable}" th:value="1" th:required="required"/>Hasta 3 horas aproximadamente por semana
 	                                           </label>
 	                                       </div>
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{sociable}" th:value="2" />Hasta 5 horas aproximadamente por semana
+	                                               <input type="radio" th:field="*{sociable}" th:value="2"  th:required="required" />Hasta 5 horas aproximadamente por semana
 	                                           </label> 
 	                                       </div>
 	                                       <div class="radio"> 
 	                                           <label>
-	                                               <input type="radio" th:field="*{sociable}" th:value="3" />Hasta 7 horas aproximadamente por semana
+	                                               <input type="radio" th:field="*{sociable}" th:value="3" th:required="required"/>Hasta 7 horas aproximadamente por semana
 	                                           </label>                                             
 	                                       </div>
 	                                       <div class="radio"> 
 	                                           <label>
-	                                               <input type="radio" th:field="*{sociable}" th:value="4" />Mas de 7 horas por semana si fuera necesario
+	                                               <input type="radio" th:field="*{sociable}" th:value="4" th:required="required"/>Mas de 7 horas por semana si fuera necesario
 	                                           </label>                                             
 	                                       </div>
 	                                   </div>
@@ -216,22 +216,22 @@
 						       		   <div class="form-group panel-body">
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{expensive}" th:value="1" />Hasta 20€ por mes aproximadamente
+	                                               <input type="radio" th:field="*{expensive}" th:value="1" th:required="required"/>Hasta 20€ por mes aproximadamente
 	                                           </label>
 	                                       </div>
 	                                       <div class="radio">
 	                                           <label>
-	                                               <input type="radio" th:field="*{expensive}" th:value="2" />Hasta 60€ por mes
+	                                               <input type="radio" th:field="*{expensive}" th:value="2" th:required="required" />Hasta 60€ por mes
 	                                           </label> 
 	                                       </div>
 	                                       <div class="radio"> 
 	                                           <label>
-	                                               <input type="radio" th:field="*{expensive}" th:value="3" />Hasta 100€ por mes
+	                                               <input type="radio" th:field="*{expensive}" th:value="3" th:required="required" />Hasta 100€ por mes
 	                                           </label>
 	                                       </div>
 	                                       <div class="radio"> 
 	                                           <label>
-	                                               <input type="radio" th:field="*{expensive}" th:value="4" />No me preocupa los temas financeros
+	                                               <input type="radio" th:field="*{expensive}" th:value="4" th:required="required"/>No me preocupa los temas financeros
 	                                           </label>                                              
 	                                       </div>
 	                                   </div>
@@ -245,16 +245,16 @@
 	                                       <div class="radio">
 		                                       <label class="radio-inline">Ningun ruido</label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{noiseTolerance}" th:value="1" />
+		                                           <input type="radio" th:field="*{noiseTolerance}" th:value="1" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                            <input type="radio" th:field="*{noiseTolerance}" th:value="2" />
+		                                            <input type="radio" th:field="*{noiseTolerance}" th:value="2" th:required="required" />
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{noiseTolerance}" th:value="3" />
+		                                           <input type="radio" th:field="*{noiseTolerance}" th:value="3" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{noiseTolerance}" th:value="4" />
+		                                           <input type="radio" th:field="*{noiseTolerance}" th:value="4" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">Mucho ruido</label>
 	                                       </div>
@@ -269,16 +269,16 @@
 	                                       <div class="radio">
 		                                       <label class="radio-inline">Ninguna</label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{specialNeeds}" th:value="1" />
+		                                           <input type="radio" th:field="*{specialNeeds}" th:value="1" th:required="required" />
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{specialNeeds}" th:value="2" />
+		                                           <input type="radio" th:field="*{specialNeeds}" th:value="2" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{specialNeeds}" th:value="3" />
+		                                           <input type="radio" th:field="*{specialNeeds}" th:value="3" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{specialNeeds}" th:value="4" />
+		                                           <input type="radio" th:field="*{specialNeeds}" th:value="4" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">Mucha</label>
 	                                       </div>
@@ -293,16 +293,16 @@
 	                                       <div class="radio">
 		                                       <label class="radio-inline">Nada</label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{playful}" th:value="1" />
+		                                           <input type="radio" th:field="*{playful}" th:value="1" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{playful}" th:value="2" />
+		                                           <input type="radio" th:field="*{playful}" th:value="2" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{playful}" th:value="3" />
+		                                           <input type="radio" th:field="*{playful}" th:value="3" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{playful}" th:value="4" />
+		                                           <input type="radio" th:field="*{playful}" th:value="4" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">Mucho</label>
 	                                       </div>
@@ -317,16 +317,16 @@
 	                                       <div class="radio">
 		                                       <label class="radio-inline">Nada</label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{specialNeeds2}" th:value="1" />
+		                                           <input type="radio" th:field="*{specialNeeds2}" th:value="1" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{specialNeeds2}" th:value="2" />
+		                                           <input type="radio" th:field="*{specialNeeds2}" th:value="2" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{specialNeeds2}" th:value="3" />
+		                                           <input type="radio" th:field="*{specialNeeds2}" th:value="3" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{specialNeeds2}" th:value="4" />
+		                                           <input type="radio" th:field="*{specialNeeds2}" th:value="4" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">Mucho</label>
 	                                       </div>
@@ -341,16 +341,16 @@
 	                                       <div class="radio">
 		                                       <label class="radio-inline">Nada</label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{affectionate}"  th:value="1" />
+		                                           <input type="radio" th:field="*{affectionate}"  th:value="1" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{affectionate}" th:value="2" />
+		                                           <input type="radio" th:field="*{affectionate}" th:value="2" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{affectionate}" th:value="3" />
+		                                           <input type="radio" th:field="*{affectionate}" th:value="3" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{affectionate}" th:value="4" />
+		                                           <input type="radio" th:field="*{affectionate}" th:value="4" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">Mucho</label>
 	                                       </div>
@@ -362,19 +362,19 @@
 			         			   <label>Diariamente estariamos en contacto con: <span>*</span></label>
 			         			   <div class="panel panel-default">
 			                           <div class="form-group panel-body">   
-	                                       <div class="radio">
+	                                       <div class="radio" >
 		                                       <label class="radio-inline">Ningun perro</label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{sociable2}"  th:value="1" />
+		                                           <input type="radio" th:field="*{sociable2}"  th:value="1" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{sociable2}" th:value="2" />
+		                                           <input type="radio" th:field="*{sociable2}" th:value="2" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{sociable2}" th:value="3" />
+		                                           <input type="radio" th:field="*{sociable2}" th:value="3" th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">                                           
-		                                           <input type="radio" th:field="*{sociable2}" th:value="4" />
+		                                           <input type="radio" th:field="*{sociable2}" th:value="4"  th:required="required"/>
 		                                       </label>
 		                                       <label class="radio-inline">Muchos perros</label>
 	                                       </div>
@@ -398,7 +398,7 @@
 		                           <!--CHILDRENS -->
 					       		   <div class="panel">
 	                                      <label>Tengo niños(as)?: <span >*</span></label>
-									   <select class="form-control" th:field="*{childrens}">
+									   <select class="form-control" th:field="*{childrens}" th:required="required">
 										   <option th:value="true" >Si</option>
 										   <option th:value="false">No</option>
 									   </select>
@@ -408,7 +408,7 @@
 				              	   <!--OTHER DOGS -->
 					       		   <div class="panel">
 	                                      <label>Tengo otros perros?: <span >*</span></label>
-									   <select class="form-control" th:field="*{otherDogs}">
+									   <select class="form-control" th:field="*{otherDogs}" th:required="required">
 										   <option th:value="true" >Si</option>
 										   <option th:value="false">No</option>
 									   </select>
@@ -418,7 +418,7 @@
 				              	   <!--ANY CATS -->
 					       		   <div class="panel">
 	                                      <label>Tengo gatos?: <span >*</span></label>
-									   <select class="form-control" th:field="*{anyCats}">
+									   <select class="form-control" th:field="*{anyCats}" th:required="required">
 									   		<option th:value="true" >Si</option>
 											<option th:value="false">No</option>
 									   </select>
@@ -428,7 +428,7 @@
 				              	    <!--ALERGIES -->
 					       		   <div class="panel">
 	                                      <label>Tengo personas alergicas en la familia?: <span >*</span></label>
-									   <select class="form-control" th:field="*{alergies}">
+									   <select class="form-control" th:field="*{alergies}" th:required="required">
 									   		<option th:value="true" >Si</option>
 											<option th:value="false">No</option>
 									   </select>
@@ -450,14 +450,14 @@
 		                        <div class="panel-body">
 		                        	<!--NAME -->
 		                        	<div class="panel">
-                                        <input class="form-control" type="text" th:field="*{nombre}" placeholder="Nombre y Apellidos" />
+                                        <input class="form-control" type="text" th:field="*{nombre}" placeholder="Nombre y Apellidos" th:required="required" />
                                     </div>
                                     <!--END NAME -->
                                    
                                     <!--EMAIL -->
                                     <div class="panel input-group">
                                         <span class="input-group-addon">@</span>
-                                        <input class="form-control" type="text" th:field="*{email}" placeholder="Email"  />
+                                        <input class="form-control" type="text" th:field="*{email}" placeholder="Email" th:required="required" />
                                     </div>
 									<!--END EMAIL -->
 									
