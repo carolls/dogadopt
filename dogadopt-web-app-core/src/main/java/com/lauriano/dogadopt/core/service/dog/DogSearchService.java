@@ -1,6 +1,7 @@
 package com.lauriano.dogadopt.core.service.dog;
 
 import java.util.List;
+import java.util.Set;
 
 import com.lauriano.dogadopt.data.contentitem.dog.DogContentItem;
 
@@ -28,6 +29,8 @@ public interface DogSearchService {
 	 * @return
 	 */
 	public List<DogContentItem> getByIds(final long[] ids);
+	
+
 	
 	/**
 	 * Get all dogs by boolean filters

@@ -27,16 +27,18 @@
 		                       	<table width="100%" class="table table-striped table-bordered table-hover" id="dataTable">
 								  <thead>
 								    <tr>
-								      <th>Id</th>
+								    
+								      <th >Similarity </th>
 								      <th>Name</th>
 								    </tr>
 								  </thead>
 								  <tbody>
 								    <tr th:each="dog : ${items}">
-								      <td th:text="${dog.id}"/>
+								    
+								      <td th:text="${dog.similarity} ? ${dog.similarity} : '' "  ></td>
 								      <td>
 									      <a href="dogDetails.html"
-								          th:href="@{|/dog/${dog.id}|}"
+								          th:href="@{|/dog/${dog.id}?similarity=${dog.similarity}|}"
 								          th:text="|${dog.name}|">View</a>
 							          </td>
 								    </tr>

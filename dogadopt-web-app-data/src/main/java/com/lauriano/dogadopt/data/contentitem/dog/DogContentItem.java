@@ -55,7 +55,8 @@ public class DogContentItem implements Serializable {
 	protected boolean otherDogs;
 	protected boolean anyCats;
 	protected boolean alergies;
-	
+	//Similaritud
+	protected int similarity;
 	
 	
 	public int getHair() {
@@ -174,6 +175,12 @@ public class DogContentItem implements Serializable {
 	}
 	public void setBreed(String breed) {
 		this.breed = breed;
+	}
+	public int getSimilarity() {
+		return similarity;
+	}
+	public void setSimilarity(int similarity) {
+		this.similarity = similarity;
 	}
 	
 }

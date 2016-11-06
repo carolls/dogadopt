@@ -56,6 +56,30 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 			//log.info(beantoString(vecinos));
 			if (vecinos.length>0){
 				final List<DogContentItem> resultFiltered = dogSearchService.getByIds(vecinos);
+				/*for (int i=0;i<vecinos.length;i++){
+					((DogContentItem) resultFiltered.get(i)).setSimilarity((userSimilarity.userSimilarity(0L, vecinos[i]))*100);
+					log.info("---------similaritud-------------");
+					log.info(vecinos[i]+"");
+					log.info(beantoString(userSimilarity.userSimilarity(0L, vecinos[i])));
+				}*/
+				
+				for (DogContentItem dogItem : resultFiltered){
+					Long dogId = dogItem.getId();
+					Long elVecino = null;
+					for(Long vecino : vecinos) {
+						if(vecino.equals(dogId)) {
+							elVecino = vecino;
+							break;
+						}
+					}
+					if(elVecino!=null) {
+						dogItem.setSimilarity((int)( (userSimilarity.userSimilarity(0L, elVecino))*100));
+					}
+					log.info("---------similaritud-------------");
+					log.info(elVecino+"");
+					log.info(beantoString(userSimilarity.userSimilarity(0L, elVecino)));
+				}
+				
 				return resultFiltered;
 			}
 			//log.info("---------finish-------------");
@@ -71,6 +95,10 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 		user.setId(0L);
 		if (dogForm.isIndependent2()){
 			user.setIndependent(1);
+		}
+		//si no impuerta el dinero a gastar, entonces ponemos como si no se hubiera valorado
+		if(dogForm.getExpensive()==4){
+			user.setExpensive(0);
 		}
 		user.setSpecialNeeds((dogForm.getSpecialNeeds()+dogForm.getSpecialNeeds2())/2);
 		user.setSociable((dogForm.getSociable()+dogForm.getSociable2())/2);

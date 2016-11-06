@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lauriano.dogadopt.core.service.dog.DogRecommenderService;
@@ -65,12 +66,18 @@ public class DogController {
      * @return
      */
     @RequestMapping(value="/{id}")
-    public String getOne(@PathVariable(value="id", required=true) Long id, Model model) {
+    public String getOne(@PathVariable(value="id", required=true) Long id,
+    		@RequestParam(value="similarity", required=false) Integer similarity,
+    		Model model) {
         final DogContentItem item = dogSearchService.getById(id);
+        if(similarity!=null) {
+        	item.setSimilarity(similarity);
+        }
         model.addAttribute("menuOption", lastMenuValue);
     	model.addAttribute("item", item);
         return ITEM_TEMPLEATE;
     }
+
 
     /**
      * Show dog recommendation form

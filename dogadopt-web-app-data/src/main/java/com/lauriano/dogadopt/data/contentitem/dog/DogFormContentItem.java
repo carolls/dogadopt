@@ -67,6 +67,9 @@ public class DogFormContentItem implements Serializable {
 	
 	protected String nombre;
 	protected String email;
+	
+	protected int similarity;
+	
 	public int getSize() {
 		return size;
 	}
@@ -189,6 +192,11 @@ public class DogFormContentItem implements Serializable {
 		this.email = email;
 	}
 
-
+	public int getSimilarity() {
+		return similarity;
+	}
+	public void setSimilarity(int similarity) {
+		this.similarity = similarity;
+	}
 	
 }

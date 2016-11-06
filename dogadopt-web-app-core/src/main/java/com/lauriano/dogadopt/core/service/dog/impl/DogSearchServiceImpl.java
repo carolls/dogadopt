@@ -3,6 +3,7 @@ package com.lauriano.dogadopt.core.service.dog.impl;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,8 @@ public class DogSearchServiceImpl implements DogSearchService {
 		return dogConverterService.toListItem(entities);
 	}	
 
+
+	
 	@Override
 	public List<DogContentItem> getAllByBooleanFilters(final Boolean childrens, final Boolean otherDogs, final Boolean anyCats, final Boolean alergies) {
 		final boolean hasChildrens = (childrens != null && childrens) ? true : false;

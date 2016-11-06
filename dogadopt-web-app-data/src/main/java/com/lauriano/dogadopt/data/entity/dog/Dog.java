@@ -66,6 +66,9 @@ public class Dog implements Serializable {
 	protected boolean anyCats;
 	protected boolean alergies;
 	
+	protected int similarity;
+	
+	
 	//array con todos los elementos
 	
 	
@@ -228,6 +231,12 @@ public class Dog implements Serializable {
 	
 	public int getExpensive() {
 		return expensive;
+	}
+	public int getSimilarity() {
+		return similarity;
+	}
+	public void setSimilarity(int similarity) {
+		this.similarity = similarity;
 	}
 
 	public void setExpensive(int expensive) {
