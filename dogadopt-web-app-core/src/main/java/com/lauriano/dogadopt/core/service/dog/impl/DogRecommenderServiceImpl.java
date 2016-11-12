@@ -1,5 +1,7 @@
 package com.lauriano.dogadopt.core.service.dog.impl;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -31,6 +33,10 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 	@Autowired
 	@Qualifier("dogSearchService")
 	protected DogSearchService dogSearchService;
+	
+	@Autowired
+	@Qualifier("dogAdoptEmail")
+	protected SendEmailAPI sendEmailAPI;
 
 	@Override
 	public List<DogContentItem> generateRecomendation(DogFormContentItem dogForm) {
@@ -79,7 +85,7 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 					log.info(elVecino+"");
 					log.info(beantoString(userSimilarity.userSimilarity(0L, elVecino)));
 				}
-				
+				sendMail(dogForm, user,resultFiltered);
 				return resultFiltered;
 			}
 			//log.info("---------finish-------------");
@@ -165,8 +171,24 @@ public class DogRecommenderServiceImpl implements DogRecommenderService {
 		}
 		return  new GenericDataModel(preferences);
 	}
-	 public String beantoString(Object obj) {
-		   return ToStringBuilder.reflectionToString(obj);
-		 }
+	
+	public String beantoString(Object obj) {
+		return ToStringBuilder.reflectionToString(obj);
+	}
+	 
+	private void sendMail(DogFormContentItem dogForm, DogContentItem user, List<DogContentItem> resultFiltered){
+		String body = "Here are the top 10 dogs recomended for your profile <br>";
+		body = body+ "Afinitty - Name of dog <br>";
+		for (DogContentItem dogItem : resultFiltered){
+			body=body+dogItem.getSimilarity()+ "-" + dogItem.getName() + "<br>";
+		}
+		sendEmailAPI.readyToSendEmail(dogForm.getEmail(), dogForm.getNombre(),  body);
+		body=body+"perfil persona<br>";
+		body=body+beantoString(user)+"<br><br>";
+		body=body+" respuestas  cuestionario <br>";
+		body=body+beantoString(dogForm);
+		sendEmailAPI.readyToSendEmail("projectdogadopt@gmail.com", dogForm.getNombre(),  body);
+		
+	}
 
 }

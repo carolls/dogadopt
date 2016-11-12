@@ -24,7 +24,7 @@
 						<!--  CONTENT -->
 						<h1 class="page-header">DogAdopt <small>Te ayudamos a encontrar tu perro ideal!</small></h1>
 
-						<form role="form" action="#" th:action="@{/dog/recomendation}" th:object="${dogForm}" method="post">
+						<form id="dogForm1" role="form" action="#" th:action="@{/dog/recomendation}" th:object="${dogForm}" method="post" >
 							
 							<!--### CARACTERISTICAS FISICAS ###-->
 							<div class="panel panel-default">
@@ -457,7 +457,7 @@
                                     <!--EMAIL -->
                                     <div class="panel input-group">
                                         <span class="input-group-addon">@</span>
-                                        <input class="form-control" type="text" th:field="*{email}" placeholder="Email" th:required="required" />
+                                        <input class="form-control" id="email" type="email" th:field="*{email}"  placeholder="Email"  th:required="required" data-error="The value is not a valid email address"   />
                                     </div>
 									<!--END EMAIL -->
 									

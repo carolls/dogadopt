@@ -28,14 +28,14 @@
 								  <thead>
 								    <tr>
 								    
-								      <th >Similarity </th>
+								      <th th:text="${items[0].similarity != 0} ? 'Similarity' : 'Id'"></th>
 								      <th>Name</th>
 								    </tr>
 								  </thead>
 								  <tbody>
 								    <tr th:each="dog : ${items}">
 								    
-								      <td th:text="${dog.similarity} ? ${dog.similarity} : '' "  ></td>
+								      <td th:text="${dog.similarity != 0} ? ${dog.similarity} : ${dog.id}"></td>
 								      <td>
 									      <a href="dogDetails.html"
 								          th:href="@{|/dog/${dog.id}?similarity=${dog.similarity}|}"
